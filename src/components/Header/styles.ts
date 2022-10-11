@@ -5,6 +5,7 @@ export const HeaderWrapper = styled.div`
     width: 100%;
     height: 4.5rem;
     padding: 5px;
+    margin-bottom: 1rem;
     
     display: flex;
     justify-content: space-between;
