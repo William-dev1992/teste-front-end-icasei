@@ -1,5 +1,6 @@
-import { LoginWrapper, Logo, LoginForm, Input, FormButton } from "./styles";
+import { LoginWrapper, Logo, LoginForm, Input } from './styles'
 import { useRouter } from 'next/router'
+import DefaultButton from '../../components/Button'
 
 export default function Login() {
     const router = useRouter()
@@ -10,13 +11,17 @@ export default function Login() {
 
     return (
         <LoginWrapper>
-            <Logo src="/YouTube-Logo.png" alt="YouTube Logo"></Logo>
+            <Logo src="/YouTube-Logo.png" alt="YouTube Logo" />
 
             <LoginForm>
                 <Input type="text" placeholder="Nome do usuário" />
                 <Input type="email" placeholder="E-mail" />
                 
-                <FormButton type="button" onClick={validateUser}>Entrar</FormButton>
+                <DefaultButton 
+                    buttonType='button'
+                    text='Entrar' 
+                    onClick={validateUser} 
+                />
             </LoginForm>
         </LoginWrapper>
     )

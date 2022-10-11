@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Button } from '@material-ui/core'
 
 export const LoginWrapper = styled.div`
     display: flex;
@@ -39,13 +38,4 @@ export const Input = styled.input`
 
     border-radius: 5px;
     border: 1px solid black;
-`;
-
-export const FormButton = styled(Button)`
-    && {
-        height: 2.5rem;
-        width: 6rem;
-        border-radius: 5px;
-        border: 1px solid black;
-    }
 `;
