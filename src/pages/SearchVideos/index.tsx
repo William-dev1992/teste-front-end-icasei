@@ -1,15 +1,16 @@
-import Header from "../../components/Header";
-import { MainWrapper, SearcherWrapper, SearchInput, SearchButton } from "./styles";
+import SearchResult from "../../components/SearchResult";
+import { SearchResultWrapper } from "./styles";
 
-export default function SearchVideos() {    
+export default function SearchVideos({resultData}: any) {
     return (
-        <MainWrapper>
-            <Header />
-
-            <SearcherWrapper alignment='center'>
-                <SearchInput placeholder='Pesquise'/>
-                <SearchButton type='button'>Buscar</SearchButton>
-            </SearcherWrapper>
-        </MainWrapper>
+        <SearchResultWrapper>
+            <SearchResult 
+                videoId='123131'
+                imageUrl='/YouTube-Logo.png'
+                videoTitle='Video'
+                channelTitle='titulo'
+                videoDescription='teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição '
+            />
+        </SearchResultWrapper>                
     )
 }
