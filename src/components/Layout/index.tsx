@@ -1,28 +1,27 @@
-import { useRef, useState } from "react";
-import Header from "../Header";
-import { MainWrapper, SearcherWrapper, SearchInput, SearchButton } from "./styles";
+import { useRef, useState } from 'react'
+import executeAxiosCall from '../../utils/executeAxiosCall'
+import normalizeSearchResult from '../../utils/normalizeSearchResult';
+import Header from '../Header'
+import { MainWrapper, SearcherWrapper, SearchInput, SearchButton } from './styles'
 
 export default function Layout({children}: any) {
     const searchInputRef = useRef(null);
     const [resultData, setResultData] = useState([]);
 
-
-    function Search() {
+    async function Search() {
         if (searchInputRef == null) {
             return;
         }
         
         const queryValue = searchInputRef.current.value;
 
-        setResultData(() => {
-            return [{
-                videoId: '123131',
-                imageUrl: '/YouTube-Logo.png',
-                videoTitle: 'Video',
-                channelTitle: 'titulo',
-                videoDescription: 'teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição teste de descrição '
-            }]
-        })
+        const { data } = await executeAxiosCall(queryValue, 'Search')
+
+        setResultData(
+            data.items.map((item: any) => {
+                return normalizeSearchResult(item)
+            })
+        )
     }
 
     return (
@@ -35,7 +34,11 @@ export default function Layout({children}: any) {
                     <SearchButton type='button' onClick={Search}>Buscar</SearchButton>
                 </div>
                 
-                {children}
+                {
+                    resultData.length
+                    ? children
+                    : <div />
+                }
             </SearcherWrapper>
         </MainWrapper>
     )

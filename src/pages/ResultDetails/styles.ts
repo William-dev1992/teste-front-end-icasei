@@ -15,6 +15,7 @@ export const VideoHeader = styled.div`
 
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     margin-bottom: 10px;
 `;
 
@@ -41,4 +42,28 @@ export const Info = styled.p`
     margin: 5px 0;
     display: 'flex';
     align-items: center;
+`;
+
+export const VideoDescription = styled.p`
+    margin: 5px 0;
+    display: 'flex';
+    align-items: center;
+
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* if you change this, make sure to change the fallback line-height and height */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
+
+export const VideoTitle = styled.p`
+    font-weight: bold;
+
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* if you change this, make sure to change the fallback line-height and height */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;

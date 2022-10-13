@@ -6,7 +6,7 @@ export default function SearchResult({videoId, imageUrl, videoTitle, channelTitl
     const router = useRouter()
 
     function goToDetails() {
-        router.push('/ResultDetails')
+        router.push('/ResultDetails', { query: { videoId } })
     }
 
     return (
