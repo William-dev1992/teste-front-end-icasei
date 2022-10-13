@@ -6,7 +6,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse): any 
 
     const options = {
         method: 'GET',
-        url: `https://www.googleapis.com/youtube/v3/videos?id=YkgkThdzX-8&part=snippet,statistics&key=${process.env.REACT_APP_API_KEY}`
+        url: `https://www.googleapis.com/youtube/v3/videos?id=${query.data}&part=snippet,statistics&key=${process.env.REACT_APP_API_KEY}`
     };
 
     return axios.request(options).then(response => {

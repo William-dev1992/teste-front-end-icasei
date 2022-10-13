@@ -26,15 +26,17 @@ export default function ResultDetails({data}: {data: NormalizeSearchResult}) {
     const router = useRouter()
 
     function goBack() {
-        router.push('/SearchVideos')
+        router.back()
     }
+
+    console.log(data)
 
     return (
         <ContentWrapper>
             <VideoHeader>
                 <DefaultButton
                     buttonType='button'
-                    onClick={goBack}
+                    onClick={() => {goBack}}
                 >
                     <ArrowBack />
                 </DefaultButton>
